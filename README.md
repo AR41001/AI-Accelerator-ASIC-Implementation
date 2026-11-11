@@ -1,4 +1,4 @@
-# VLSI for AI — 8×8 INT8 Systolic Accelerator
+# AI Accelerator ASIC Implementation
 
 **SystemVerilog · Sky130A · Yosys · LibreLane · OpenROAD**
 
