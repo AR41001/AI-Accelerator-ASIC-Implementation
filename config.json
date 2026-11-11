@@ -1,0 +1,158 @@
+{
+    "DESIGN_NAME": "inference_accelerator_top",
+
+    "VERILOG_FILES": [
+        "dir::../rtl_yosys/pkg_accelerator.sv",
+        "dir::../rtl_yosys/sky130_sram_blackbox.v",
+        "dir::../rtl_yosys/sky130_sram_bank.sv",
+        "dir::../rtl_yosys/mac_unit.sv",
+        "dir::../rtl_yosys/systolic_array.sv",
+        "dir::../rtl_yosys/sram_controller.sv",
+        "dir::../rtl_yosys/axi_stream_input.sv",
+        "dir::../rtl_yosys/axi_stream_output.sv",
+        "dir::../rtl_yosys/quantize_unit.sv",
+        "dir::../rtl_yosys/layer_ctrl_fsm.sv",
+        "dir::../rtl_yosys/inference_accelerator_top.sv"
+    ],
+
+    "PDN_MACRO_CONNECTIONS": [
+    "u_sram.* vccd1 vssd1 vccd1 vssd1"
+    ],
+    
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 10,
+
+    "PDK": "sky130A",
+    "STD_CELL_LIBRARY": "sky130_fd_sc_hd",
+
+    "SYNTH_STRATEGY": "DELAY 1",
+    "SYNTH_MAX_FANOUT": 10,
+
+    "FALLBACK_SDC": "dir::constraints.sdc",
+    "PNR_SDC_FILE": "dir::constraints.sdc",
+    "SIGNOFF_SDC_FILE": "dir::constraints.sdc",
+
+    "FP_SIZING": "absolute",
+    "DIE_AREA": [0, 0, 2800, 2810],
+
+    "RUN_CTS": true,
+    "CTS_CLK_BUFFERS":
+        [ "sky130_fd_sc_hd__clkbuf_4",
+        "sky130_fd_sc_hd__clkbuf_8" ],
+    "CTS_ROOT_BUFFER": "sky130_fd_sc_hd__clkbuf_16",
+    "CTS_SINK_CLUSTERING_SIZE": 20,
+
+    "STA_CORNERS": ["nom_tt_025C_1v80"],
+    "DEFAULT_CORNER": "nom_tt_025C_1v80",
+
+    "FP_MACRO_HORIZONTAL_HALO": 10,
+    "FP_MACRO_VERTICAL_HALO": 10,
+    "RUN_ROUTING": true,
+    "RT_MIN_LAYER": "met1",
+    "RT_MAX_LAYER": "met5",
+    "GRT_REPAIR_ANTENNAS": true,
+    "GRT_ADJUSTMENT": 0.05,
+    "DRT_OPT_ITERS": 20,
+
+    "VDD_NETS": ["vccd1"],
+    "GND_NETS": ["vssd1"],
+
+    "FP_PDN_VLAYER": "met4",
+    "FP_PDN_HLAYER": "met5",
+    "FP_PDN_VPITCH": 153.6,
+    "FP_PDN_HPITCH": 153.6,
+    "FP_PDN_VWIDTH": 1.6,
+    "FP_PDN_HWIDTH": 1.6,
+
+    "PL_TARGET_DENSITY": 0.35,
+    "PL_ROUTABILITY_DRIVEN": true,
+    "PL_RESIZER_DESIGN_OPTIMIZATIONS": true,
+    "PL_RESIZER_TIMING_OPTIMIZATIONS": true,
+
+    "MACROS": {
+    "sky130_sram_1kbyte_1rw1r_8x1024_8": {
+        "instances": {
+            "u_sram.u_sram_bank0.gen_sram_lane[0].u_sram": {
+                "location": [400, 400],
+                "orientation": "N"
+            },
+            "u_sram.u_sram_bank0.gen_sram_lane[1].u_sram": {
+                "location": [900, 400],
+                "orientation": "N"
+            },
+            "u_sram.u_sram_bank0.gen_sram_lane[2].u_sram": {
+                "location": [1400, 400],
+                "orientation": "N"
+            },
+            "u_sram.u_sram_bank0.gen_sram_lane[3].u_sram": {
+                "location": [1900, 400],
+                "orientation": "N"
+            },
+
+            "u_sram.u_sram_bank0.gen_sram_lane[4].u_sram": {
+                "location": [400, 900],
+                "orientation": "N"
+            },
+            "u_sram.u_sram_bank0.gen_sram_lane[5].u_sram": {
+                "location": [900, 900],
+                "orientation": "N"
+            },
+            "u_sram.u_sram_bank0.gen_sram_lane[6].u_sram": {
+                "location": [1400, 900],
+                "orientation": "N"
+            },
+            "u_sram.u_sram_bank0.gen_sram_lane[7].u_sram": {
+                "location": [1900, 900],
+                "orientation": "N"
+            },
+
+            "u_sram.u_sram_bank1.gen_sram_lane[0].u_sram": {
+                "location": [400, 1400],
+                "orientation": "N"
+            },
+            "u_sram.u_sram_bank1.gen_sram_lane[1].u_sram": {
+                "location": [900, 1400],
+                "orientation": "N"
+            },
+            "u_sram.u_sram_bank1.gen_sram_lane[2].u_sram": {
+                "location": [1400, 1400],
+                "orientation": "N"
+            },
+            "u_sram.u_sram_bank1.gen_sram_lane[3].u_sram": {
+                "location": [1900, 1400],
+                "orientation": "N"
+            },
+
+            "u_sram.u_sram_bank1.gen_sram_lane[4].u_sram": {
+                "location": [400, 1900],
+                "orientation": "N"
+            },
+            "u_sram.u_sram_bank1.gen_sram_lane[5].u_sram": {
+                "location": [900, 1900],
+                "orientation": "N"
+            },
+            "u_sram.u_sram_bank1.gen_sram_lane[6].u_sram": {
+                "location": [1400, 1900],
+                "orientation": "N"
+            },
+            "u_sram.u_sram_bank1.gen_sram_lane[7].u_sram": {
+                "location": [1900, 1900],
+                "orientation": "N"
+            }
+        },
+
+        "gds": [
+            "/home/abdullah-rafique/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/gds/sky130_sram_1kbyte_1rw1r_8x1024_8.gds"
+        ],
+
+        "lef": [
+            "/home/abdullah-rafique/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lef/sky130_sram_1kbyte_1rw1r_8x1024_8.lef"
+        ],
+
+        "lib": {
+            "*": "/home/abdullah-rafique/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib/sky130_sram_1kbyte_1rw1r_8x1024_8_TT_1p8V_25C.lib"
+        }
+    }
+    }
+    
+}
